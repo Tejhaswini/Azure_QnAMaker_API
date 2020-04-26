@@ -163,7 +163,7 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
 ```
 404 -  Resource Not Found 
 ```
-# publish knowledgebase
+## publish knowledgebase
 * HTTP Method - POST
 * URI parameters 
 ```
@@ -186,7 +186,7 @@ Status code: 204
 ```
 404 -  Resource Not Found 
 ```
-# Delete a knowledgebase
+## Delete a knowledgebase
 * HTTP Method - DELETE 
 * URI parameters 
 ```
