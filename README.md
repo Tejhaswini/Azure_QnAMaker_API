@@ -9,7 +9,7 @@ An Azure cognitive services API that lets you create a conversational question-a
 
 ### Knowledgebase
 
-##Create new knowledgebase
+## Create new knowledgebase
 ```
 /knowledgebases
 ```
@@ -49,7 +49,6 @@ Ocp-Apim-Subscription-Key: {API key}
  }
 ],
 "defaultAnswerUsedForExtraction": "I am sorry, could not provide information your requested"
-
 }
 ```
 * Sample Response
@@ -65,7 +64,7 @@ Ocp-Apim-Subscription-Key: {API key}
 * Status codes-
 ```
 202 Accepted - Asynchronous operation to create a new knowledgebase is ready
-``
+```
 * Error codes-
 ```
 400 Bad Request - Invalid Input.See details , BadArgument.
@@ -121,11 +120,11 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases
 * Status codes -
 ```
 200 OK - Details of all Knowledgebases
-``
+```
 * Error codes -
 ```
 404 -  Resource Not Found 
-
+```
 ## Get details of a Knowledgebase
 * HTTP Method - GET
 * URI parameters 
@@ -159,7 +158,7 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
 * Status codes -
 ```
 200 OK - Details of a Knowledgebase
-``
+```
 * Error codes -
 ```
 404 -  Resource Not Found 
@@ -182,7 +181,7 @@ Status code: 204
 * Status codes -
 ```
 204 No Content - Published the Knowledgebase
-``
+```
 * Error codes -
 ```
 404 -  Resource Not Found 
@@ -205,7 +204,7 @@ Status code: 204 No Content
 * Status codes -
 ```
 204 No Content - Deleted the specified Knowledgebase with all of its data.
-``
+```
 * Error codes -
 ```
 404 -  Resource Not Found 
