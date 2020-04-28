@@ -10,12 +10,13 @@ QnA Maker is a cloud-based Natural Language Processing (NLP) service that easily
 * References
 
 ## Base URL
+http://159.65.170.32:3000/
 
 ## Demo Using Postman
 Using JWT (JSON Web Token) we are authorizing the user to access the QnAMaker API
 ## Register user URL
 ```
-http://localhost:3000/users
+http://159.65.170.32:3000/users
 ```
 Registers a user and saves the details in the MongoDB
 ```
@@ -49,7 +50,7 @@ Tejaswini is registered successfully
 ```
 ## Login URL
 ```
-http://localhost:3000/login
+http://159.65.170.32:3000/login
 ```
 Logins the user and sends the token as a response
 ```
