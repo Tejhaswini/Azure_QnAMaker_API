@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
     let details = schema.validate(user);
     //If error in validation
     if(details.error){
-        res.status(400).send("Error : Enter valid details");
+        res.status(400).send("Error : Please enter valid details");
     }
     //No error in validation
     else{

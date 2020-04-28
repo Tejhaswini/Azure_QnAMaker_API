@@ -8,19 +8,19 @@ dotenv.config();
     router.post('/', (req,res) => {
 
     // Use Knowledgebase endpoint for Asynchronous operation to create a new knowledgebase
-    const knowledgebases_url = process.env.knowledgebases_endpoint + "/create";
-
+    const knowledgebases_url = "https://qandamk.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases" + "/create";
+    const data = req.get('Ocp-Apim-Subscription-Key');
     // Create header with token
     const header = {
         "Content-Type":"application/json",
-        "Ocp-Apim-Subscription-Key": process.env.Ocp_Apim_Subscription_Key
+        "Ocp-Apim-Subscription-Key": data
     }
     
     // Post knowledgebase to azure cognitive service and get response
     axios.post(knowledgebases_url, 
       {
         "name": req.body.name,
-        "qnaList": req.body.qnaData,
+        "qnaList": req.body.qnaList,
         "defaultAnswerUsedForExtraction": req.body.defaultAnswerUsedForExtraction
       }, 
       {
@@ -45,11 +45,11 @@ dotenv.config();
   router.post('/:kbId', (req,res) => {
     
   // Get Knowledgebase endpoint from enviroment variables and build create publish URL
-  const knowledgebases_url = process.env.knowledgebases_endpoint + "/" + req.params.kbId;
-
+  const knowledgebases_url = "https://qandamk.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases" + "/" + req.params.kbId;
+  const data = req.get('Ocp-Apim-Subscription-Key');
   // Create header with token
   const header = {
-      "Ocp-Apim-Subscription-Key": process.env.Ocp_Apim_Subscription_Key
+      "Ocp-Apim-Subscription-Key": data
   }
   
   // Post knowledgebase to azure cognitive service and get response
@@ -71,11 +71,11 @@ dotenv.config();
   router.get('/', (req,res) =>{
     
   // Get Knowledgebase endpoint from enviroment variables
-  const knowledgebases_url = process.env.knowledgebases_endpoint;
-  
+  const knowledgebases_url = "https://qandamk.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases";
+  const data = req.get('Ocp-Apim-Subscription-Key');
   // Create header with token
   const header = {
-      "Ocp-Apim-Subscription-Key": process.env.Ocp_Apim_Subscription_Key
+      "Ocp-Apim-Subscription-Key": data
   }
   
   axios.get(knowledgebases_url, 
@@ -95,11 +95,12 @@ dotenv.config();
   router.get('/:kbId?', (req,res) =>{
 
   // Get Knowledgebase endpoint from enviroment variables and build delete URL
-  const knowledgebases_url = process.env.knowledgebases_endpoint + "/" + req.params.kbId;
+  const knowledgebases_url = "https://qandamk.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases" + "/" + req.params.kbId;
+  const data = req.get('Ocp-Apim-Subscription-Key');
   
   // Create header with token
   const header = {
-      "Ocp-Apim-Subscription-Key": process.env.Ocp_Apim_Subscription_Key
+      "Ocp-Apim-Subscription-Key": data
   }
 
   axios.get(knowledgebases_url, 
@@ -119,11 +120,11 @@ dotenv.config();
   router.delete('/:kbId?', (req,res) =>{
 
   // Get Knowledgebase endpoint from enviroment variables and build delete URL
-  const knowledgebases_url = process.env.knowledgebases_endpoint + "/" + req.params.kbId;
-  
+  const knowledgebases_url = "https://qandamk.cognitiveservices.azure.com/qnamaker/v4.0/knowledgebases" + "/" + req.params.kbId;
+  const data = req.get('Ocp-Apim-Subscription-Key');
   // Create header with token
   const header = {
-      "Ocp-Apim-Subscription-Key": process.env.Ocp_Apim_Subscription_Key
+      "Ocp-Apim-Subscription-Key": data
   }
 
   axios.delete(knowledgebases_url, 
@@ -155,12 +156,12 @@ dotenv.config();
 router.post('/:kbId?/generateanswer', (req,res) => {
 
   // Get QNA-URL from enviroment variables and build generateAnswer URL
-  const QNA_API_URL = process.env.QNA_API_URL + "/" +req.params.kbId + "/generateAnswer";
-  
+  const QNA_API_URL = "https://qandamk.azurewebsites.net/qnamaker/knowledgebases" + "/" +req.params.kbId + "/generateAnswer";
+  const auth = req.get('Authorization');
   // Create header with token
   const header = {
       "Content-Type":"application/json",
-      "Authorization": process.env.Authorization
+      "Authorization": auth
   }
   
   // Post the question to azure cognitive service and get response
@@ -187,5 +188,4 @@ router.post('/:kbId?/generateanswer', (req,res) => {
     })
 
 });
-
-  module.exports = router;
+module.exports = router;

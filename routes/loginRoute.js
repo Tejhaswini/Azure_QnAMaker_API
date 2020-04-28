@@ -25,10 +25,10 @@ router.post('/', async (req, res) => {
         console.log(user.email);
         let currentUser = await User.findOne({email : user.email});
         if(currentUser == null){
-            res.status(400).send("Error : User not found. Please register!");
+            res.status(400).send("Error : User is not found. Please register!");
         }
         else if(user.password == currentUser.password){
-            jwt.sign({_id:currentUser._id},process.env.ACCESS_TOKEN_SECRET,(err,token)=>{
+            jwt.sign({_id:currentUser._id},"teju",(err,token)=>{
                 console.log(token);
                 res.header("auth-token", token).send({"token" : token});
             })
