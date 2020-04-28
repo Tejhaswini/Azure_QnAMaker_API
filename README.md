@@ -1,10 +1,90 @@
 # Azure QandAMaker API
-An Azure cognitive services API that lets you create a conversational question-and-answer layer over the knowledgebase.
+QnA Maker is a cloud-based Natural Language Processing (NLP) service that easily creates a natural conversational layer over your data. It can be used to find the most appropriate answer for any given natural language input, from your custom knowledge base (KB) of information.
 
 ## Table of Contents
+* Base URL
+* Demo using POSTMAN
+* API Endpoints
+     * Knowledgebase Endpoints
+          * Create new Knowledgebase
+          * Get details of a knowledgebase
+          * List all knowledgebases
+          * Publish Knowledgebase
+          * Delete a Knowledgebase
+    * QnA
+        * Generate Answer
+* References
 
 ## Base URL
 
+## Demo Using Postman
+### Using JWT (JSON Web Token) we are authorizing the user to access the QnAMaker API
+## Register user URL
+```
+http://localhost:3000/users
+```
+### Registers a user and saves the details in the MongoDB
+```
+* Method - POST
+```
+* Request Body
+```
+* name : - Name of the user
+* email : - Email of the user
+* password : - Password
+```
+* Sample Request Body -
+```
+{
+	"name" : "Tejaswini",
+	"email": "tatluri@uncc.edu",
+	"password": "Teju1234"	
+}
+```
+* Sample Response
+```
+Tejaswini is registered successfully
+```
+* Status codes-
+```
+200 OK - The user is created
+```
+* Error codes-
+```
+400 Bad Request - Enter valid details (if the data validation does not match the schema)
+```
+## Login URL
+```
+http://localhost:3000/login
+```
+### Logins the user and sends the token as a response
+```
+* Method - POST
+```
+* Request Body
+```
+* email : - Email of the user
+* password : - Password
+```
+* Sample Request Body -
+```
+{
+	"email": "tatluri@uncc.edu",
+	"password": "Teju1234"	
+}
+```
+* Sample Response
+```
+User Token is generated
+```
+* Status codes-
+```
+200 OK - The user is created
+```
+* Error codes-
+```
+400 Bad Request - Enter valid details (if the data validation does not match the schema)
+```
 ## API Endpoints
 
 ## Knowledgebase
@@ -13,7 +93,7 @@ An Azure cognitive services API that lets you create a conversational question-a
 ```
 /knowledgebases
 ```
-* HTTP Method - POST
+* Method - POST
 * Sample Request
 ```
 POST {Endpoint}/qnamaker/v4.0/knowledgebases/create
@@ -70,7 +150,7 @@ Ocp-Apim-Subscription-Key: {API key}
 400 Bad Request - Invalid Input.See details , BadArgument.
 ```
 ### List all knowledgebase
-* HTTP Method - GET
+* Method - GET
 * Sample Request
 ```
 GET {Endpoint}/qnamaker/v4.0/knowledgebases
@@ -126,7 +206,7 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases
 404 -  Resource Not Found 
 ```
 ### Get details of a Knowledgebase
-* HTTP Method - GET
+* Method - GET
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -163,8 +243,8 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
 ```
 404 -  Resource Not Found 
 ```
-### publish knowledgebase
-* HTTP Method - POST
+### Publish knowledgebase
+* Method - POST
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -187,7 +267,7 @@ Status code: 204
 404 -  Resource Not Found 
 ```
 ### Delete a knowledgebase
-* HTTP Method - DELETE 
+* Method - DELETE 
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -209,7 +289,72 @@ Status code: 204 No Content
 ```
 404 -  Resource Not Found 
 ```
+## QNA
+### Generate Answer
+* Method - POST
+* URI parameters 
+```
+kbId(Required) - Knowledgebase id
+```
+* Sample Request
+```
+POST {RuntimeEndpoint}/qnamaker/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff/generateAnswer
+Authorization: EndpointKey {Primary/Secondary EndpointKey}
+```
+* Sample Request Body
+```
+{
+  "question": "Hi",
+  "top": 6,
+  "isTest": true,
+  "scoreThreshold": 20,
+  "strictFilters": [
+    {
+      "name": "category",
+      "value": "api"
+    }
+  ],
+  "userId": "sd53lsY="
+}
+```
+* Sample Response 
+```
+{
+    "answers": [
+        {
+            "questions": [
+                "Hi. Are you there?"
+            ],
+            "answer": "Yes, How can I help you?",
+            "score": 99.0,
+            "id": 1,
+            "source": "Custom Editorial",
+            "metadata": [],
+            "context": {
+                "isContextOnly": false,
+                "prompts": []
+            }
+        }
+    ],
+    "debugInfo": null,
+    "activeLearningEnabled": false
+}
+```
+* Status codes -
+```
+204 OK - Deleted the specified Knowledgebase with all of its data.
+```
+* Error codes -
+```
+404 - Resource Not Found 
+```
 ## References
+* [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/) - QnA Maker
+* [JWT](https://jwt.io/) - JSON WebToken Authentication
+* [NodeJs](https://nodejs.org/en/docs/) - JavaScript runtime
+* [Express](https://expressjs.com/) - Node.js Web Application Framework
+* [MongoDB Atlas](https://docs.atlas.mongodb.com/) - Fully-managed cloud database
+* [ReadMe](https://www.makeareadme.com/) - Documentation
 
 
 

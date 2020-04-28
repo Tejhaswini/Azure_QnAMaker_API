@@ -21,9 +21,9 @@ console.log("connected to database!")
 app.use(express.json());
 
 //Route Middlewares with JWT authentication 
-app.use('/api/knowledgebases', KBRoute);
-app.use('/api/users', UserRoute);
-app.use('/api/login', loginRoute);
+app.use('/knowledgebases', KBRoute);
+app.use('/users', UserRoute);
+app.use('/login', loginRoute);
 
 //Port 
 app.listen(port, () => console.log('Server up and running'));
