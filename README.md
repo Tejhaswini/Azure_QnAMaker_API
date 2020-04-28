@@ -5,27 +5,21 @@ QnA Maker is a cloud-based Natural Language Processing (NLP) service that easily
 * Base URL
 * Demo using POSTMAN
 * API Endpoints
-     * Knowledgebase Endpoints
-          * Create new Knowledgebase
-          * Get details of a knowledgebase
-          * List all knowledgebases
-          * Publish Knowledgebase
-          * Delete a Knowledgebase
-    * QnA
-        * Generate Answer
+     * Knowledgebase
+     * QnA
 * References
 
 ## Base URL
 
 ## Demo Using Postman
-### Using JWT (JSON Web Token) we are authorizing the user to access the QnAMaker API
+Using JWT (JSON Web Token) we are authorizing the user to access the QnAMaker API
 ## Register user URL
 ```
 http://localhost:3000/users
 ```
-### Registers a user and saves the details in the MongoDB
+Registers a user and saves the details in the MongoDB
 ```
-* Method - POST
+Method - POST
 ```
 * Request Body
 ```
@@ -57,9 +51,9 @@ Tejaswini is registered successfully
 ```
 http://localhost:3000/login
 ```
-### Logins the user and sends the token as a response
+Logins the user and sends the token as a response
 ```
-* Method - POST
+Method - POST
 ```
 * Request Body
 ```
@@ -88,12 +82,15 @@ User Token is generated
 ## API Endpoints
 
 ## Knowledgebase
+QnA Maker imports your content into a knowledge base of question and answer sets. The import process extracts information about the relationship between the parts of your structured and semi-structured content
 
 ### Create new knowledgebase
 ```
 /knowledgebases
 ```
-* Method - POST
+```
+Method - POST
+```
 * Sample Request
 ```
 POST {Endpoint}/qnamaker/v4.0/knowledgebases/create
@@ -101,10 +98,10 @@ Ocp-Apim-Subscription-Key: {API key}
 ```
 * Request body -
 ```
-  *name - Friendly name for the knowledgebase
-  *qnaList - List of Question and Answers to be added to the Knowledgebase
-  *defaultAnswerUsedForExtraction - Text string to be used as the answer in any Q-A which has no extracted answer
- ```
+  * name - Friendly name for the knowledgebase
+  * qnaList - List of Question and Answers to be added to the Knowledgebase
+  * defaultAnswerUsedForExtraction - Text string to be used as the answer in any Q-A which has no extracted answer
+```
 * Sample Request body 
 ```
 {
@@ -150,7 +147,9 @@ Ocp-Apim-Subscription-Key: {API key}
 400 Bad Request - Invalid Input.See details , BadArgument.
 ```
 ### List all knowledgebase
-* Method - GET
+```
+Method - GET
+```
 * Sample Request
 ```
 GET {Endpoint}/qnamaker/v4.0/knowledgebases
@@ -206,7 +205,9 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases
 404 -  Resource Not Found 
 ```
 ### Get details of a Knowledgebase
-* Method - GET
+```
+Method - GET
+```
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -244,7 +245,9 @@ GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
 404 -  Resource Not Found 
 ```
 ### Publish knowledgebase
-* Method - POST
+```
+Method - POST
+```
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -267,7 +270,9 @@ Status code: 204
 404 -  Resource Not Found 
 ```
 ### Delete a knowledgebase
-* Method - DELETE 
+```
+Method - DELETE
+``` 
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
@@ -289,9 +294,11 @@ Status code: 204 No Content
 ```
 404 -  Resource Not Found 
 ```
-## QNA
-### Generate Answer
-* Method - POST
+## QNA Runtime
+Generate Answer - call to query the knowledgebase.
+```
+Method - POST
+```
 * URI parameters 
 ```
 kbId(Required) - Knowledgebase id
