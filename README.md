@@ -23,9 +23,9 @@ Method - POST
 ```
 * Request Body
 ```
-* name : - Name of the user
-* email : - Email of the user
-* password : - Password
+name : - Name of the user
+email : - Email of the user
+password : - Password
 ```
 * Sample Request Body -
 ```
@@ -57,8 +57,8 @@ Method - POST
 ```
 * Request Body
 ```
-* email : - Email of the user
-* password : - Password
+email : - Email of the user
+password : - Password
 ```
 * Sample Request Body -
 ```
@@ -98,9 +98,9 @@ Ocp-Apim-Subscription-Key: {API key}
 ```
 * Request body -
 ```
-  * name - Friendly name for the knowledgebase
-  * qnaList - List of Question and Answers to be added to the Knowledgebase
-  * defaultAnswerUsedForExtraction - Text string to be used as the answer in any Q-A which has no extracted answer
+  name - Friendly name for the knowledgebase
+  qnaList - List of Question and Answers to be added to the Knowledgebase
+  defaultAnswerUsedForExtraction - Text string to be used as the answer in any Q-A which has no extracted answer
 ```
 * Sample Request body 
 ```
@@ -358,9 +358,6 @@ Authorization: EndpointKey {Primary/Secondary EndpointKey}
 ## References
 * [Azure Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/qna-maker/) - QnA Maker
 * [JWT](https://jwt.io/) - JSON WebToken Authentication
-* [NodeJs](https://nodejs.org/en/docs/) - JavaScript runtime
-* [Express](https://expressjs.com/) - Node.js Web Application Framework
-* [MongoDB Atlas](https://docs.atlas.mongodb.com/) - Fully-managed cloud database
 * [ReadMe](https://www.makeareadme.com/) - Documentation
 
 
