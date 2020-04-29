@@ -96,6 +96,7 @@ Method - POST
 ```
 POST {Endpoint}/qnamaker/v4.0/knowledgebases/create
 Ocp-Apim-Subscription-Key: {API key}
+auth-token : Created from user login
 ```
 * Request body -
 ```
@@ -154,6 +155,7 @@ Method - GET
 * Sample Request
 ```
 GET {Endpoint}/qnamaker/v4.0/knowledgebases
+Ocp-Apim-Subscription-Key: {API key}
 ```
 * Sample Response 
 ```
@@ -216,6 +218,7 @@ kbId(Required) - Knowledgebase id
 * Sample Request
 ```
 GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
+Ocp-Apim-Subscription-Key: {API key}
 ```
 * Sample Response 
 ```
@@ -257,6 +260,7 @@ kbId(Required) - Knowledgebase id
 ```
 POST {Endpoint}/qnamaker/v4.0/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
 Ocp-Apim-Subscription-Key: {API key}
+auth-token : Created from user login
 ```
 * Sample Response 
 ```
@@ -282,6 +286,7 @@ kbId(Required) - Knowledgebase id
 ```
 DELETE {Endpoint}/qnamaker/v4.0/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
 Ocp-Apim-Subscription-Key: {API key}
+auth-token : Created from user login
 ```
 * Sample Response 
 ```
@@ -307,6 +312,7 @@ kbId(Required) - Knowledgebase id
 * Sample Request
 ```
 POST {RuntimeEndpoint}/qnamaker/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff/generateAnswer
+Ocp-Apim-Subscription-Key: {API key}
 Authorization: EndpointKey {Primary/Secondary EndpointKey}
 ```
 * Sample Request Body
