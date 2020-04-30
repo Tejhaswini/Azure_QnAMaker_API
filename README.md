@@ -9,7 +9,7 @@ QnA Maker is a cloud-based Natural Language Processing (NLP) service that easily
      * QnA
 * References
 
-## Base URL
+## Base URL (Endpoint)
 http://159.65.170.32:3000/
 
 ## Demo Using Postman
@@ -94,7 +94,7 @@ Method - POST
 ```
 * Sample Request
 ```
-POST {Endpoint}/qnamaker/v4.0/knowledgebases/create
+POST {Endpoint}/knowledgebases
 Ocp-Apim-Subscription-Key: {API key}
 auth-token : Created from user login
 ```
@@ -154,7 +154,7 @@ Method - GET
 ```
 * Sample Request
 ```
-GET {Endpoint}/qnamaker/v4.0/knowledgebases
+GET {Endpoint}/knowledgebases
 Ocp-Apim-Subscription-Key: {API key}
 ```
 * Sample Response 
@@ -217,7 +217,7 @@ kbId(Required) - Knowledgebase id
 ```
 * Sample Request
 ```
-GET {Endpoint}/qnamaker/v4.0/knowledgebases/{kbId}
+GET {Endpoint}/knowledgebases/{kbId}
 Ocp-Apim-Subscription-Key: {API key}
 ```
 * Sample Response 
@@ -258,7 +258,7 @@ kbId(Required) - Knowledgebase id
 ```
 * Sample Request
 ```
-POST {Endpoint}/qnamaker/v4.0/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
+POST {Endpoint}/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
 Ocp-Apim-Subscription-Key: {API key}
 auth-token : Created from user login
 ```
@@ -284,7 +284,7 @@ kbId(Required) - Knowledgebase id
 ```
 * Sample Request
 ```
-DELETE {Endpoint}/qnamaker/v4.0/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
+DELETE {Endpoint}/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff
 Ocp-Apim-Subscription-Key: {API key}
 auth-token : Created from user login
 ```
@@ -311,7 +311,7 @@ kbId(Required) - Knowledgebase id
 ```
 * Sample Request
 ```
-POST {RuntimeEndpoint}/qnamaker/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff/generateAnswer
+POST {Endpoint}/knowledgebases/9d091697-fb8c-4ed5-9ac0-35bf8273bfff/generateAnswer
 Ocp-Apim-Subscription-Key: {API key}
 Authorization: EndpointKey {Primary/Secondary EndpointKey}
 ```
